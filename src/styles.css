@@ -141,11 +141,63 @@ html {
 
 /** Reset until here **/
 
+body {
+  background-color: var(--main-color-shadow);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  max-height: 100vh;
+}
+
 :root {
   --main-color: #2770b4;
   --main-color-dark: #24619b;
   --main-color-light: #2f7fca;
+  --main-color-shadow: rgba(47, 116, 182, 0.2);
   --high-priority-color: #b43939;
   --mid-priority-color: #c59f4e;
   --low-priority-color: #4ea790;
+}
+
+button {
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.primary-button {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: var(--main-color);
+  &:hover {
+    background-color: var(--main-color-light);
+  }
+  &:active {
+    background-color: var(--main-color-dark);
+  }
+}
+
+.nav-bar {
+  background-color: var(--main-color);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+#content-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+#content {
+  flex: 1;
+  min-width: 400px;
+  max-width: 80%;
+  background-color: white;
 }
