@@ -142,14 +142,10 @@ html {
 /** Reset until here **/
 
 :root {
-  --main-color: #111;
-  --main-color-dark: #111;
-  --main-color-light: #111;
-  --secondary-color: #111;
-  --secondary-color-light: #111;
-  --secondary-color-dark: #111;
-}
-
-#template {
-  color: red;
+  --main-color: #2770b4;
+  --main-color-dark: #24619b;
+  --main-color-light: #2f7fca;
+  --high-priority-color: #b43939;
+  --mid-priority-color: #c59f4e;
+  --low-priority-color: #4ea790;
 }

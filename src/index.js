@@ -1,8 +1,7 @@
 import "./styles.css";
 
 function main() {
-  // Your load code here
-  console.log("Hello world from a template! :)");
+  console.log("Hello world from a todo's project! :)");
 }
 
 main();
