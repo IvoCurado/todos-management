@@ -1,0 +1,16 @@
+export default (function () {
+  const localStorage = window.localStorage;
+
+  const updateStorage = function (newState) {
+    const stringifiedState = JSON.stringify(newState);
+    localStorage.setItem("state", stringifiedState);
+  };
+
+  const getStorage = function () {
+    const state = localStorage.getItem("state", newState);
+    const parsedState = JSON.parse(state);
+    return parsedState;
+  };
+
+  return { updateStorage, getStorage };
+})();

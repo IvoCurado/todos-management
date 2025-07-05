@@ -1,7 +1,8 @@
 import "./styles.css";
+import loadContent from "./modules/load-initial-page.js";
 
 function main() {
-  console.log("Hello world from a todo's project! :)");
+  loadContent();
 }
 
 main();
