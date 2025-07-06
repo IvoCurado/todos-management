@@ -200,4 +200,50 @@ button {
   min-width: 400px;
   max-width: 80%;
   background-color: white;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.content-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fixed-action {
+  position: absolute;
+  right: 20px;
+  top: 28px;
+}
+
+.content-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.card {
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  padding: 20px;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 5px var(--main-color-shadow);
+  }
+}
+
+.project-card {
+  &:hover {
+    background-color: var(--main-color-shadow);
+  }
+  h3 {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  p {
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 }

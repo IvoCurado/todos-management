@@ -7,7 +7,7 @@ export default (function () {
   };
 
   const getStorage = function () {
-    const state = localStorage.getItem("state", newState);
+    const state = localStorage.getItem("state");
     const parsedState = JSON.parse(state);
     return parsedState;
   };
