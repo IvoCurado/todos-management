@@ -195,6 +195,9 @@ button {
   button {
     font-size: 18px;
   }
+  position: sticky;
+  z-index: 2;
+  top: 0px;
 }
 
 #content-wrapper {
@@ -216,6 +219,9 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  h2 {
+    text-align: center;
+  }
 }
 
 .fixed-action {

@@ -15,9 +15,19 @@ export default function loadInitialPage() {
     state.updateState("projects", [defaultProject]);
   }
 
+  const scrollToTop = function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const allTodosButton = document.getElementById("global-button");
-  allTodosButton.addEventListener("click", (event) => goToGlobalList());
+  allTodosButton.addEventListener("click", (event) => {
+    goToGlobalList();
+    scrollToTop();
+  });
   const allProjectsButton = document.getElementById("all-projects-button");
-  allProjectsButton.addEventListener("click", (event) => loadProjectsUi());
+  allProjectsButton.addEventListener("click", (event) => {
+    loadProjectsUi();
+    scrollToTop();
+  });
   goToGlobalList();
 }
