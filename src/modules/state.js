@@ -7,10 +7,20 @@ export default (function () {
     return localStorage.getStorage() ?? state;
   };
 
+  const getCurrentProjects = () => {
+    const currentState = localStorage.getStorage() ?? state;
+    return currentState?.projects ?? [];
+  };
+
+  const updateCurrentProjects = (newProjects) => {
+    state["projects"] = newProjects;
+    localStorage.updateStorage(state);
+  };
+
   const updateState = (key, value) => {
     state[key] = value;
     localStorage.updateStorage(state);
   };
 
-  return { getState, updateState };
+  return { getState, updateState, getCurrentProjects, updateCurrentProjects };
 })();
