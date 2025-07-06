@@ -1,20 +1,23 @@
 import Project from "./project.js";
 import state from "./state.js";
-import loadProjectsUi from "./load-projects-ui.js";
-import loadTodosUi from "./load-todos-ui.js";
+import loadProjectsUi from "../ui/load-projects-ui.js";
+import loadTodosUi from "../ui/load-todos-ui.js";
+import { goToGlobalList } from "./go-to-global-list.js";
 
 export default function loadInitialPage() {
-  let defaultProject = new Project(
-    "Personal",
-    "Project with todo's of my daily life."
-  );
+  const currentState = state.getState();
+  if (Object.keys(currentState).length === 0) {
+    const defaultProject = new Project(
+      "Personal",
+      "Project with todo's of my daily life."
+    );
 
-  state.updateState("projects", [defaultProject]);
+    state.updateState("projects", [defaultProject]);
+  }
 
-  const dueTodayButton = document.getElementById("due-today-button");
-  dueTodayButton.addEventListener("click", (event) =>
-    loadTodosUi(defaultProject)
-  );
+  const allTodosButton = document.getElementById("global-button");
+  allTodosButton.addEventListener("click", (event) => goToGlobalList());
   const allProjectsButton = document.getElementById("all-projects-button");
   allProjectsButton.addEventListener("click", (event) => loadProjectsUi());
+  goToGlobalList();
 }

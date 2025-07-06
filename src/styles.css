@@ -247,3 +247,11 @@ button {
     overflow: hidden;
   }
 }
+
+.empty-state{
+  text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: var(--main-color);
+  padding: 40px 10px;
+}

@@ -8,7 +8,7 @@ export default (function () {
 
   const getStorage = function () {
     const state = localStorage.getItem("state");
-    const parsedState = JSON.parse(state);
+    const parsedState = JSON.parse(state) ?? null;
     return parsedState;
   };
 
