@@ -1,5 +1,6 @@
 import state from "../modules/state.js";
 import loadTodosUi from "./load-todos-ui.js";
+import loadProjectFormUi from "./load-project-form-ui.js";
 
 export default function () {
   const contentElement = document.querySelector("#content");
@@ -13,7 +14,7 @@ export default function () {
   addProjectButton.textContent = "+ Add";
   addProjectButton.classList = "fixed-action primary-button";
   addProjectButton.addEventListener("click", (event) => {
-    console.log("new 1");
+    loadProjectFormUi();
   });
   contentHeader.append(title, addProjectButton);
 

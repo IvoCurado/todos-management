@@ -154,6 +154,8 @@ body {
   --main-color-dark: #24619b;
   --main-color-light: #2f7fca;
   --main-color-shadow: rgba(47, 116, 182, 0.2);
+  --grey: #dddddd;
+  --grey-dark: #c5c5c5;
   --high-priority-color: #b43939;
   --mid-priority-color: #c59f4e;
   --low-priority-color: #4ea790;
@@ -165,13 +167,16 @@ button {
   padding: 5px 10px;
   &:hover {
     cursor: pointer;
+    background-color: var(--grey);
+  }
+  &:active {
+    background-color: var(--grey-dark);
   }
 }
 
 .primary-button {
   color: white;
   font-weight: bold;
-  font-size: 18px;
   background-color: var(--main-color);
   &:hover {
     background-color: var(--main-color-light);
@@ -187,6 +192,9 @@ button {
   display: flex;
   justify-content: center;
   gap: 10px;
+  button {
+    font-size: 18px;
+  }
 }
 
 #content-wrapper {
@@ -248,10 +256,28 @@ button {
   }
 }
 
-.empty-state{
+.empty-state {
   text-align: center;
   font-weight: bold;
   text-decoration: underline;
   text-decoration-color: var(--main-color);
   padding: 40px 10px;
+}
+
+dialog {
+  border: none;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+#create-project-dialog {
+  .create-project-form-wrapper {
+    padding: 10px 0px;
+  }
+  .create-project-actions {
+    display: flex;
+    gap: 4px;
+    justify-content: end;
+    align-items: center;
+  }
 }
