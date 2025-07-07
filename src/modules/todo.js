@@ -1,13 +1,12 @@
 export default class Todo {
   #isCompleted = false;
 
-  constructor(title, description, dueDate, priority, notes, checkList) {
+  constructor(title, description, dueDate, priority, notes) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
     this.notes = notes;
-    this.checkList = checkList;
   }
 
   get isCompleted() {
@@ -16,13 +15,5 @@ export default class Todo {
 
   set isCompleted(isCompleted) {
     this.#isCompleted = isCompleted;
-  }
-
-  get priority() {
-    return this.priority;
-  }
-
-  set priority(priority) {
-    this.priority = priority;
   }
 }

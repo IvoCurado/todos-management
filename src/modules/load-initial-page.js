@@ -1,4 +1,5 @@
 import Project from "./project.js";
+import Todo from "./todo.js";
 import state from "./state.js";
 import loadProjectsUi from "../ui/load-projects-ui.js";
 import loadTodosUi from "../ui/load-todos-ui.js";
@@ -7,10 +8,18 @@ import { goToGlobalList } from "./go-to-global-list.js";
 export default function loadInitialPage() {
   const currentState = state.getState();
   if (Object.keys(currentState).length === 0) {
-    const defaultProject = new Project(
+    let defaultProject = new Project(
       "Personal",
       "Project with todo's of my daily life."
     );
+    const x = new Todo(
+      "titleInput.value",
+      "descriptionInput.value",
+      "dueDateInput.value",
+      "low",
+      "notesInput.value"
+    );
+    defaultProject.todosList = [x];
 
     state.updateState("projects", [defaultProject]);
   }

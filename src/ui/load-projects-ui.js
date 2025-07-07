@@ -2,7 +2,7 @@ import state from "../modules/state.js";
 import loadTodosUi from "./load-todos-ui.js";
 import loadProjectFormUi from "./load-project-form-ui.js";
 
-export default function () {
+export default function loadProjectsUi() {
   const contentElement = document.querySelector("#content");
   contentElement.innerHTML = "";
   const contentHeader = document.createElement("div");
@@ -30,11 +30,21 @@ export default function () {
       projectCard.addEventListener("click", (event) => {
         loadTodosUi(currentProjectsList[i]);
       });
+      const deleteButton = document.createElement("button");
+      deleteButton.textContent = "Delete";
+      deleteButton.classList = "delete-button primary-button";
+      deleteButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+        currentProjectsList.splice(i, 1);
+        state.updateCurrentProjects(currentProjectsList);
+        loadProjectsUi();
+      });
+
       const projectTitle = document.createElement("h3");
       projectTitle.textContent = `${currentProjectsList[i].title}`;
       const projectDescription = document.createElement("p");
       projectDescription.textContent = `${currentProjectsList[i].description}`;
-      projectCard.append(projectTitle, projectDescription);
+      projectCard.append(projectTitle, projectDescription, deleteButton);
       contentBody.append(projectCard);
     }
   } else {

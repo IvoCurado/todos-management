@@ -220,6 +220,7 @@ button {
   align-items: center;
   justify-content: center;
   h2 {
+    padding-right: 50px;
     text-align: center;
   }
 }
@@ -247,10 +248,22 @@ button {
 }
 
 .project-card {
+  position: relative;
+  .edit-button {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+  }
+  .delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
   &:hover {
     background-color: var(--main-color-shadow);
   }
   h3 {
+    padding-right: 40px;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
@@ -294,6 +307,23 @@ dialog {
   }
 }
 
+#create-todo-dialog {
+  h3 {
+    text-align: center;
+    font-weight: bold;
+  }
+  .create-todo-form-wrapper,
+  .create-todo-actions {
+    padding-top: 20px;
+  }
+  .create-todo-actions {
+    display: flex;
+    gap: 4px;
+    justify-content: end;
+    align-items: center;
+  }
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -301,9 +331,13 @@ form {
   label {
     font-size: 15px;
   }
-  input {
+  input,
+  select {
     border: 1px solid var(--main-color-shadow);
     border-radius: 5px;
     padding: 3px;
+  }
+  select{
+    background-color: white;
   }
 }

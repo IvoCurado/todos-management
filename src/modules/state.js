@@ -17,10 +17,18 @@ export default (function () {
     localStorage.updateStorage(state);
   };
 
+  const getCurrentTodosList = (projectId) => {
+    const currentState = localStorage.getStorage() ?? state;
+    return (
+      currentState?.projects?.filter((project) => project.id === projectId)?.[0]
+        ?.todosList ?? []
+    );
+  };
+
   const updateState = (key, value) => {
     state[key] = value;
     localStorage.updateStorage(state);
   };
 
-  return { getState, updateState, getCurrentProjects, updateCurrentProjects };
+  return { getState, updateState, getCurrentProjects, updateCurrentProjects, getCurrentTodosList };
 })();

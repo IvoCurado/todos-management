@@ -1,5 +1,6 @@
 import Project from "../modules/project.js";
 import Todo from "../modules/todo.js";
+import loadTodoFormUi from "./load-todo-form-ui.js";
 
 export default function (currentProject) {
   const contentElement = document.querySelector("#content");
@@ -9,7 +10,16 @@ export default function (currentProject) {
   const title = document.createElement("h2");
   title.classList = "content-title";
   title.textContent = currentProject.title;
-  contentHeader.append(title);
+  const addToDoButton = document.createElement("button");
+  addToDoButton.textContent = "+ Add";
+  addToDoButton.classList = "fixed-action primary-button";
+  addToDoButton.addEventListener("click", (event) => {
+    loadTodoFormUi(currentProject);
+  });
+  contentHeader.append(
+    title,
+    currentProject.title === "Global To do's List" ? '' : addToDoButton
+  );
 
   const contentBody = document.createElement("div");
   contentBody.classList = "todos-content-body";

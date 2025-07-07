@@ -2,6 +2,7 @@ export default class Project {
   #todosList = [];
 
   constructor(title, description) {
+    this.id = crypto.randomUUID();
     this.title = title;
     this.description = description;
   }

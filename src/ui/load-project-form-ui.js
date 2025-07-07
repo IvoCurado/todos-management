@@ -2,7 +2,7 @@ import Project from "../modules/project.js";
 import state from "../modules/state.js";
 import loadProjectsUi from "./load-projects-ui.js";
 
-export default function (currentProject) {
+export default function () {
   const loadedDialog = document.querySelector("#create-project-dialog");
   if (loadedDialog) {
     loadedDialog.showModal();
