@@ -18,15 +18,23 @@ export default function (currentProject) {
   });
   contentHeader.append(
     title,
-    currentProject.title === "Global To do's List" ? '' : addToDoButton
+    currentProject.title === "Global To do's List" ? "" : addToDoButton
   );
 
   const contentBody = document.createElement("div");
   contentBody.classList = "todos-content-body";
 
   if (currentProject.todosList?.length) {
-    //fill content
-    contentBody.textContent = "todos list";
+    for (let i = 0; i < currentProject.todosList.length; i++) {
+      const todoCard = document.createElement("div");
+      todoCard.classList = `todo-card card priority-${currentProject.todosList[i].priority}`;
+      const todoTitle = document.createElement("h3");
+      todoTitle.textContent = currentProject.todosList[i].title;
+      const todoDueDate = document.createElement("p");
+      todoDueDate.textContent = `Due on: ${currentProject.todosList[i].dueDate}`;
+      todoCard.append(todoTitle, todoDueDate);
+      contentBody.append(todoCard);
+    }
   } else {
     const emptyState = document.createElement("p");
     emptyState.classList = "empty-state";

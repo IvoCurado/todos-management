@@ -6,8 +6,7 @@ import loadTodosUi from "./load-todos-ui.js";
 export default function (currentProject) {
   const loadedDialog = document.querySelector("#create-todo-dialog");
   if (loadedDialog) {
-    loadedDialog.showModal();
-    return;
+    loadedDialog.remove();
   }
 
   const bodyElement = document.querySelector("body");

@@ -159,6 +159,9 @@ body {
   --high-priority-color: #b43939;
   --mid-priority-color: #c59f4e;
   --low-priority-color: #4ea790;
+  --high-priority-color-light: #99424223;
+  --mid-priority-color-light: #a5894e23;
+  --low-priority-color-light: #4d8d7c23;
 }
 
 button {
@@ -229,6 +232,33 @@ button {
   position: absolute;
   right: 20px;
   top: 28px;
+}
+
+.todos-content-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    h3 {
+      font-weight: bold;
+      font-size: 18px;
+    }
+    &.priority-high {
+      border-color: var(--high-priority-color);
+      background-color: var(--high-priority-color-light);
+    }
+    &.priority-medium {
+      border-color: var(--mid-priority-color);
+      background-color: var(--mid-priority-color-light);
+    }
+    &.priority-low {
+      border-color: var(--low-priority-color);
+      background-color: var(--low-priority-color-light);
+    }
+  }
 }
 
 .content-body {
@@ -337,7 +367,7 @@ form {
     border-radius: 5px;
     padding: 3px;
   }
-  select{
+  select {
     background-color: white;
   }
 }
