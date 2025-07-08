@@ -1,8 +1,9 @@
 import Project from "../modules/project.js";
 import Todo from "../modules/todo.js";
 import loadTodoFormUi from "./load-todo-form-ui.js";
+import state from "../modules/state.js";
 
-export default function (currentProject) {
+export default function loadTodosUi(currentProject) {
   const contentElement = document.querySelector("#content");
   contentElement.innerHTML = "";
   const contentHeader = document.createElement("div");
@@ -32,7 +33,26 @@ export default function (currentProject) {
       todoTitle.textContent = currentProject.todosList[i].title;
       const todoDueDate = document.createElement("p");
       todoDueDate.textContent = `Due on: ${currentProject.todosList[i].dueDate}`;
-      todoCard.append(todoTitle, todoDueDate);
+      const nodesToAdd = [todoTitle, todoDueDate];
+      const deleteButton = document.createElement("button");
+      deleteButton.classList = `delete-button primary-button priority-${currentProject.todosList[i].priority}`;
+      deleteButton.textContent = "Delete";
+      deleteButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+        currentProject.todosList.splice(i, 1);
+        const newCurrentProjects = [
+          ...state
+            .getCurrentProjects()
+            .filter((project) => project.id !== currentProject.id),
+          currentProject,
+        ];
+        state.updateCurrentProjects(newCurrentProjects);
+        loadTodosUi(currentProject);
+      });
+      if (currentProject.title !== "Global To do's List") {
+        nodesToAdd.push(deleteButton);
+      }
+      todoCard.append(...nodesToAdd);
       contentBody.append(todoCard);
     }
   } else {
