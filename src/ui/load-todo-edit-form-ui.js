@@ -50,7 +50,6 @@ export default function (currentProject, currentTodo) {
   priorityLabel.textContent = "Priority";
   const priorityInput = document.createElement("select");
   priorityInput.required = true;
-  priorityInput.value = currentTodo.priority;
   const lowPriorityOption = document.createElement("option");
   lowPriorityOption.value = "low";
   lowPriorityOption.textContent = "Low";
@@ -66,6 +65,7 @@ export default function (currentProject, currentTodo) {
     mediumPriorityOption,
     highPriorityOption
   );
+  priorityInput.value = currentTodo.priority;
   const notesLabel = document.createElement("label");
   notesLabel.for = "notes";
   notesLabel.textContent = "Notes";
