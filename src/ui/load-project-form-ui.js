@@ -5,8 +5,7 @@ import loadProjectsUi from "./load-projects-ui.js";
 export default function () {
   const loadedDialog = document.querySelector("#create-project-dialog");
   if (loadedDialog) {
-    loadedDialog.showModal();
-    return;
+    loadedDialog.remove();
   }
 
   const bodyElement = document.querySelector("body");

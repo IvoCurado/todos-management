@@ -2,6 +2,7 @@ import Project from "../modules/project.js";
 import Todo from "../modules/todo.js";
 import loadTodoFormUi from "./load-todo-form-ui.js";
 import state from "../modules/state.js";
+import loadTodoEditFormUi from "./load-todo-edit-form-ui.js";
 
 export default function loadTodosUi(currentProject) {
   const contentElement = document.querySelector("#content");
@@ -28,7 +29,12 @@ export default function loadTodosUi(currentProject) {
   if (currentProject.todosList?.length) {
     for (let i = 0; i < currentProject.todosList.length; i++) {
       const todoCard = document.createElement("div");
-      todoCard.classList = `todo-card card priority-${currentProject.todosList[i].priority}`;
+      todoCard.classList = `todo-card card priority-${
+        currentProject.todosList[i].priority
+      } ${
+        currentProject.title === "Global To do's List" ? "not-clickable" : ""
+      }`;
+
       const todoTitle = document.createElement("h3");
       todoTitle.textContent = currentProject.todosList[i].title;
       const todoDueDate = document.createElement("p");
@@ -51,6 +57,9 @@ export default function loadTodosUi(currentProject) {
       });
       if (currentProject.title !== "Global To do's List") {
         nodesToAdd.push(deleteButton);
+        todoCard.addEventListener("click", (event) => {
+          loadTodoEditFormUi(currentProject, currentProject.todosList[i]);
+        });
       }
       todoCard.append(...nodesToAdd);
       contentBody.append(todoCard);

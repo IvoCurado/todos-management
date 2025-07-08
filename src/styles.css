@@ -239,6 +239,10 @@ button {
   flex-direction: column;
   gap: 15px;
   .card {
+    &.not-clickable {
+      cursor: default;
+    }
+
     position: relative;
     display: flex;
     flex-direction: column;
